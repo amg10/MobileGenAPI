@@ -30,7 +30,7 @@ def read_root():
     return {"Hello": "World"}
 
 @app.post("/generate_image")
-async def get_image(text: str):
+async def get_image(text: str = Form(...)):
     image_path = Path(generate_image(text))
     if not image_path.is_file():
         return {"error": "Image not found on the server"}
