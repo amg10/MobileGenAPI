@@ -25,9 +25,9 @@ def generate_image(txt: str):
     image_path = "someimg.png"
     return image_path
 
-@app.get("/hello")
-async def say_hello():
-    return "Hello there!"
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
 
 @app.post("/generate_image")
 async def get_image(text: str):
